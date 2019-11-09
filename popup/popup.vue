@@ -1,6 +1,9 @@
 <template>
 <div>
-  {{ hello }}
+  <div>
+    <input type="text" v-model="headerKey">
+    <input type="text">
+  </div>
 </div>
 </template>
 
@@ -8,7 +11,7 @@
   export default {
     data(){
       return {
-        hello: 'popup.vue',
+        headerKey: 'popup.vue',
       }
     }
   }

@@ -48,6 +48,10 @@ module.exports = {
         from: path.resolve("./background.js"),
         to: `${path.resolve("dist")}/background.js`
       },
+      {
+        from: path.resolve("./icon.png"),
+        to: `${path.resolve("dist")}/icon.png`
+      },
     ]),
   ],
   mode: 'development'//模式
