@@ -1,5 +1,5 @@
 const path = require('path');
-const htmlWebpackPlugin= require('html-webpack-plugin');
+const htmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
@@ -22,9 +22,24 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(jpg|png|bmp|gif|svg|ttf|woff|woff2|eot)/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
         test: /\.vue$/,
         loader: 'vue-loader'
-      }
+      },
     ]
   },
   plugins: [
