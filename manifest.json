@@ -21,6 +21,7 @@
     "persistent": true
   },
   "permissions": [
+    "storage",
     "webRequest",
     "webRequestBlocking",
     "https://*/*",

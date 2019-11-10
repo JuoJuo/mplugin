@@ -45,6 +45,9 @@
         headers: [],
       }
     },
+    mounted() {
+      this.getInitData();
+    },
     methods: {
       checkValid() {
         if (this.headerKey === '' || this.headerValue === '') {
@@ -64,11 +67,13 @@
       add() {
         if (!this.checkValid()) return;
 
-        this.headers.push({
+        const current = {
           headerKey: this.headerKey,
           headerValue: this.headerValue,
-        });
+        };
 
+        this.headers.push(current);
+        this.syncData();
         this.clear();
       },
       clear() {
@@ -77,11 +82,21 @@
       },
       deleteHeader(index) {
         this.headers.splice(index, 1);
+        this.syncData();
+      },
+      syncData() {
+        this.setLocal();
+        chrome.storage.sync.set({headers: this.headers});
+      },
+      setLocal() {
+        localStorage.setItem('headers', JSON.stringify(this.headers));
+      },
+      getInitData() {
+        chrome.storage.sync.get('headers', (result) => {
+          this.headers = result.headers || [];
+          this.setLocal();
+        });
       },
     }
   }
 </script>
-
-<style scoped>
-
-</style>
