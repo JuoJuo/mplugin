@@ -13,7 +13,7 @@
   </Row>
 
   <Row :gutter="16" class="pdt-20 scroll" v-if="headers.length === 0">
-    <Col span="224" class="txt-ct">no data</Col>
+    <Col span="224" class="txt-ct">there is no header which you want to add to this site.</Col>
   </Row>
 
 </div>

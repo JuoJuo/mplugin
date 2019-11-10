@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Request-free",
-  "description": "梭哈，全梭哈！赢了会所嫩模，输了下海干活儿",
+  "description": "add headers for website as you want",
   "version": "0.0.1",
   "options_page": "options/index.html",
   "browser_action": {
